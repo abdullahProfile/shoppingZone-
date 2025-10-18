@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloth Store - Online Fashion Shop</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>ClothStore</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#" class="nav-link" data-category="all">All</a></li>
+                    <li><a href="#" class="nav-link" data-category="shirts">Shirts</a></li>
+                    <li><a href="#" class="nav-link" data-category="jeans">Jeans</a></li>
+                    <li><a href="#" class="nav-link" data-category="jackets">Jackets</a></li>
+                    <li><a href="#" class="nav-link" data-category="dresses">Dresses</a></li>
+                </ul>
+            </nav>
+            <div class="cart-section">
+                <a href="cart.html" class="cart-link">
+                    🛒 Cart (<span id="cart-count">0</span>)
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Search and Filters -->
+        <section class="filters">
+            <div class="container">
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="Search products...">
+                    <button id="search-btn">Search</button>
+                </div>
+                <div class="filter-options">
+                    <select id="sort-select">
+                        <option value="createdAt:desc">Newest First</option>
+                        <option value="price:asc">Price: Low to High</option>
+                        <option value="price:desc">Price: High to Low</option>
+                        <option value="name:asc">Name: A to Z</option>
+                    </select>
+                    <button id="clear-filters">Clear Filters</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Grid -->
+        <section class="products">
+            <div class="container">
+                <div id="loading" class="loading">Loading products...</div>
+                <div id="products-grid" class="products-grid"></div>
+                <div id="no-products" class="no-products" style="display: none;">
+                    No products found matching your criteria.
+                </div>
+                
+                <!-- Pagination -->
+                <div id="pagination" class="pagination" style="display: none;">
+                    <button id="prev-page" disabled>Previous</button>
+                    <span id="page-info">Page 1 of 1</span>
+                    <button id="next-page" disabled>Next</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Product Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="product-details"></div>
+        </div>
+    </div>
+
+    <!-- Add to Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="cart-form">
+                <h3>Add to Cart</h3>
+                <form id="add-to-cart-form">
+                    <div class="form-group">
+                        <label for="size-select">Size:</label>
+                        <select id="size-select" required>
+                            <option value="">Select Size</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="color-select">Color:</label>
+                        <select id="color-select" required>
+                            <option value="">Select Color</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity-input">Quantity:</label>
+                        <input type="number" id="quantity-input" min="1" max="10" value="1" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Add to Cart</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 ClothStore. All rights reserved.</p>
+            <p>Demonstrating concurrency-safe e-commerce with MongoDB transactions</p>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
